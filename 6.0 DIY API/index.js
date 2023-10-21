@@ -7,6 +7,10 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/random", (req, res) => {
+  res.json(jokes[Math.floor(Math.random() * jokes.length)]);
+  console.log("GET request received");
+});
 //1. GET a random joke
 
 //2. GET a specific joke
@@ -23,9 +27,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //8. DELETE All jokes
 
-app.listen(port, () => {
-  console.log(`Successfully started server on port ${port}.`);
-});
 
 var jokes = [
   {
@@ -599,3 +600,7 @@ var jokes = [
     jokeType: "Food",
   },
 ];
+
+app.listen(port, () => {
+  console.log(`Successfully started server on port ${port}.`);
+});

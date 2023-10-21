@@ -19,7 +19,7 @@ app.get("/", async(req,res) => {
     try {
       const response = await axios.request(options); // Make a request to the API
       console.log(response.data);
-      res.render("index.ejs",{content: response.data.results[Math.floor(Math.random() * 10)]}); // Render the data to the index.ejs file
+      res.render("index.ejs",{content: response.data.results[Math.floor(Math.random() * response.data.results.length)]}); // Render the data to the index.ejs file
         
     } catch (error) {
         res.render("index.ejs",{content: error}); // Render the error to the index.ejs file
