@@ -44,13 +44,27 @@ app.post("/post",(req,res) =>
     jokeType: req.body.type
   } 
   jokes.push(newelement);
+  console.log(jokes.slice(-1));
   res.send(newelement);
 
 });
 
 //5. PUT a joke
+app.put("/jokes/:id",(req,res)=>
+{
+  const Id = parseInt(req.params.id);
+  jokes.forEach(Element => {
+    if(Element.id == Id)
+    {
+      Element.jokeText = req.body.joke;
+      Element.jokeType = req.body.type;
+    }    
+  });
+  res.send( jokes.find((joke) => joke.id === Id));
+});
 
 //6. PATCH a joke
+app.patch("/joke/:id")
 
 //7. DELETE Specific joke
 
