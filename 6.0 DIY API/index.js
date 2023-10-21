@@ -7,15 +7,29 @@ const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//1. GET a random joke
 app.get("/random", (req, res) => {
   res.json(jokes[Math.floor(Math.random() * jokes.length)]);
   console.log("GET request received");
 });
-//1. GET a random joke
 
 //2. GET a specific joke
+app.get("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const findjoke = jokes.find((joke)=>joke.id === id);
+  res.send(findjoke);
+
+});
 
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", (req, res) => {
+  console.log(req.query);
+  const findjoke = jokes.filter((joke)=> joke.jokeType === req.query.type
+  );
+  res.json(findjoke);
+  
+
+});
 
 //4. POST a new joke
 
