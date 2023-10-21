@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.movie-card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.movie-poster {
+    max-width: 100%;
+    height: auto;
+}
+
+.movie-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.movie-description {
+    font-size: 1rem;
+}
