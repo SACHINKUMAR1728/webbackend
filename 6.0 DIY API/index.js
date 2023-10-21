@@ -6,6 +6,10 @@ const port = 3000;
 const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/",(req,res) => {
+  res.send("hi");
+});
+
 
 //1. GET a random joke
 app.get("/random", (req, res) => {
@@ -28,10 +32,21 @@ app.get("/filter", (req, res) => {
   );
   res.json(findjoke);
   
-
 });
 
 //4. POST a new joke
+app.post("/post",(req,res) =>
+{
+  const Id = jokes.length > 0 ? jokes[jokes.length - 1].id + 1 : 1;
+  const newelement = {
+    id: Id,
+    jokeText: req.body.joke,
+    jokeType: req.body.type
+  } 
+  jokes.push(newelement);
+  res.send(newelement);
+
+});
 
 //5. PUT a joke
 
