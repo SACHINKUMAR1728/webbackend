@@ -59,9 +59,14 @@ button:hover{
     <div class="movie-details">
         <h2 class="movie-title"><%= content.title %></h2>
         <p class="movie-description"><%= content.overview %></p>
-        <button type="button" onclick="Re">NEW</button>
+        <button type="button" onclick="refreshpage()">NEW</button>
     </div>
 </div>
+<script>
+    function refreshpage(){
+        window.location.reload();
+    }
+</script>
 
 </body>
 </html>
