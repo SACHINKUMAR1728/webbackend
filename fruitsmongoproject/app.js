@@ -15,17 +15,12 @@ async function main() {
   console.log('Connected successfully to server');
   const db = client.db(dbName);
 
-  const collection = db.collection('MOvies');
-  collection.insertOne({name: 'Star Wars'});
+  const collection = db.collection('users');
+  collection.insertOne({name: 'new int'});
   console.log('Inserted 1 document into the collection');
-  console.log(collection)
 
   // the following code examples can be pasted here...
 
   return 'done.';
 }
-
-main()
-  .then(console.log)
-  .catch(console.error)
-  .finally(() => client.close());
+main();
